@@ -1,0 +1,6 @@
+.bgImage {
+  background-image: url(./assets/homepage.png);
+  background-position: 50% 0;
+  background-size: cover;
+  height: auto;
+}
