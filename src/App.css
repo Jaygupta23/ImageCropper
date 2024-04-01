@@ -4,3 +4,9 @@
   background-size: cover;
   height: auto;
 }
+
+
+
+ .form .input {
+  box-shadow: #cff0ff 0px 10px 10px -5px;
+ } 

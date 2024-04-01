@@ -1,13 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import ImageUploader from "../ImageUploader/ImageUploader";
 import ImageNotFound from "../ImageNotFound/ImageNotFound";
+import { MdDelete } from "react-icons/md";
+import "../../App.css";
 
 const ImageScanner = () => {
   const [image, setImage] = useState(null);
   const [selection, setSelection] = useState(null);
   const [dragStart, setDragStart] = useState(null);
-  const [selectedOption, setSelectedOption] = useState("");
+  // const [selectedOption, setSelectedOption] = useState("");
+  const [inputField, setInputField] = useState("");
   const [allSelectedData, setAllSelectedData] = useState([]);
   const imageRef = useRef(null);
 
@@ -17,21 +19,6 @@ const ImageScanner = () => {
   useEffect(() => {
     setImage(imageURL);
   }, []);
-
-  // Function to handle image selection
-  const handleImageChange = (e) => {
-    if (e.target.files[0]) {
-      const file = e.target.files[0];
-      const reader = new FileReader();
-
-      reader.onload = () => {
-        setImage(reader.result);
-      };
-
-      reader?.readAsDataURL(file);
-    }
-    setSelection(null);
-  };
 
   // Function to handle mouse down event for drag selection
   const handleMouseDown = (e) => {
@@ -65,24 +52,19 @@ const ImageScanner = () => {
       height: Math.abs(offsetY - dragStart.y),
     });
   };
-  // Function to reset drag selection
-  const onResetHandler = () => {
-    setDragStart(null);
-    setSelection(null);
-  };
 
   // Function to submit drag selection and name of options like -> Roll Number , or Subject
   const onSelectedHandler = () => {
-    if (selectedOption) {
+    if (inputField) {
       const newObj = {
         ...selection,
         id: Math.random().toString(),
-        name: selectedOption,
+        name: inputField,
       };
 
       setAllSelectedData((prev) => [...prev, newObj]);
 
-      setSelectedOption("");
+      setInputField("");
       setSelection(null);
       setDragStart(null);
     } else {
@@ -93,8 +75,8 @@ const ImageScanner = () => {
   return (
     <div className="flex">
       {/* LEFT SECTION  */}
-      <div className="flex w-[40%]">
-        <div className="flex h-screen w-16 flex-col justify-between border-e bg-white">
+      <div className="flex w-[30%]">
+        <div className="flex  w-16 flex-col justify-between border-e bg-white">
           <div>
             <div className="inline-flex size-16 items-center justify-center">
               <span className="grid size-10 place-content-center rounded-lg bg-gray-100 text-xs text-gray-600 font-bold">
@@ -187,33 +169,24 @@ const ImageScanner = () => {
             </form>
           </div>
         </div>
-        <div className="flex h-screen flex-1 flex-col justify-between border-e bg-white">
+        <div className="flex flex-1 flex-col justify-between border-e bg-white">
           <div className="px-4 py-6">
-            <ul className="mt-14 space-y-1">
-              
+            <ul className="mt-14 space-y-1 ">
               <li
                 style={{ marginTop: "40px" }}
-                className="block w-full rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700"
+                className="block w-full rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium  mb-5"
               >
                 <div className="overflow-x-auto">
-                  <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+                  <table className="mt-3 table border-collapse border border-slate-400 min-w-full divide-y-2 divide-gray-200 bg-white text-sm rounded-lg">
                     <thead className="ltr:text-left rtl:text-right">
                       <tr>
-                        <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                          Name
+                      <th className="text-center whitespace-nowrap px-4 py-2 font-semibold text-lg text-gray-100">
+                          Field
                         </th>
-                        <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                          x-coordinate
+                        <th className="text-center whitespace-nowrap px-4 py-2 font-semibold text-lg text-gray-100">
+                          Delete
                         </th>
-                        <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                          y-coordinate
-                        </th>
-                        <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                          width
-                        </th>
-                        <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                          height
-                        </th>
+
                       </tr>
                     </thead>
 
@@ -221,20 +194,11 @@ const ImageScanner = () => {
                       {allSelectedData &&
                         allSelectedData?.map((data) => (
                           <tr key={data.id} className="odd:bg-gray-50">
-                            <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                            <td className="whitespace-nowrap px-4 py-2 text-center font-semibold text-md text-gray-900">
                               {data.name}
                             </td>
-                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                              {data.x}
-                            </td>
-                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                              {data.y}
-                            </td>
-                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                              {data.width}
-                            </td>
-                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                              {data.height}
+                            <td className="whitespace-nowrap px-4 py-2 text-center font-semibold text-md text-gray-900">
+                            < MdDelete className="mx-auto text-red-500 text-xl" />
                             </td>
                           </tr>
                         ))}
@@ -242,6 +206,38 @@ const ImageScanner = () => {
                   </table>
                 </div>
               </li>
+              <div>
+                {/* Form Field Area */}
+
+                <div className=" min-w-[350px] bg-gradient-to-b from-white to-gray-100 rounded-3xl px-4 pt-1 pb-4 border-1 border-gray shadow-md mb-10">
+                  <form action="" className="form">
+                    <input
+                      required=""
+                      className="input w-full font-semibold bg-white  border-none rounded-xl p-3 mt-6 shadow-xl   focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"
+                      type="text"
+                      name="templateName"
+                      placeholder="Template Name.."
+                    />
+                    <input
+                      required=""
+                      className="input w-full font-semibold bg-white border-none rounded-xl p-3 mt-6 shadow-xl   focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none focus:outline-none"
+                      type="text"
+                      name="feildData"
+                      placeholder="Field Name.."
+                    />
+                  </form>
+                </div>
+
+                {/* Save Template */}
+                <a
+                  className="ms-auto group flex items-center  rounded-lg border border-indigo-600 bg-teal-600  py-2 w-[30%] transition-colors hover:bg-teal-700 focus:outline-none focus:ring"
+                  href="#"
+                >
+                  <span className="font-medium text-lg flex text-white transition-colors group-hover:text-indigo-600 group-active:text-indigo-500 mx-auto">
+                    Save Template
+                  </span>
+                </a>
+              </div>
             </ul>
           </div>
         </div>
@@ -254,116 +250,111 @@ const ImageScanner = () => {
           <div className="">
             <ImageNotFound />
 
-            <h1 className="mt-8 text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h1 className="mt-8 text-2xl font-bold tracking-tight text-gray-700 sm:text-4xl">
               Please Select Image...
             </h1>
 
-            <p className="mt-4 text-gray-500 text-center">
+            <p className="mt-4 text-gray-600 text-center">
               We can't find that page!!
             </p>
           </div>
         </div>
       ) : (
-        <div className="w-[60%] bg-gray-400">
-          <section>
-            <div className="mx-auto max-w-screen-xl px-2 lg:pt-2 sm:px-6 lg:px-8">
-              <ul className="mt-2 flex justify-center pt-6">
-                <li>
-                  <div>
-                    {image && (
-                      <div
-                        style={{
-                          position: "relative",
-                          border: "2px solid gray",
-                        }}
-                      >
-                        <img
-                          ref={imageRef}
-                          src={image}
-                          alt="Selected"
+        <div className="w-[70%] h-[90%] bg-gray-400 pb-2">
+          <div className="mx-auto max-w-screen-xl px-2 lg:pt-2 sm:px-6 lg:px-8">
+            <ul className="mt-2 flex justify-center pt-6 py-4">
+              <li className="w-[65%]">
+                {image && (
+                  <div
+                    style={{
+                      position: "relative",
+                      border: "2px solid gray",
+                    }}
+                  >
+                    <img
+                      ref={imageRef}
+                      src={image}
+                      alt="Selected"
+                      style={{
+                        width: "100%",
+                        height: "810px",
+                        cursor: "crosshair",
+                      }}
+                      onMouseDown={handleMouseDown}
+                      onMouseUp={handleMouseUp}
+                      onMouseMove={handleMouseMove}
+                      draggable={false}
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModal"
+                    />
+                    {selection && (
+                      <>
+                        <div
+                          className="border-blue-500"
                           style={{
-                            width: "750px",
-                            height: "810px",
-                            cursor: "crosshair",
+                            border: "2px solid #007bff",
+                            position: "absolute",
+                            left: selection.x,
+                            top: selection.y,
+                            width: selection.width,
+                            height: selection.height,
                           }}
-                          onMouseDown={handleMouseDown}
-                          onMouseUp={handleMouseUp}
-                          onMouseMove={handleMouseMove}
-                          draggable={false}
-                          data-bs-toggle="modal"
-                          data-bs-target="#exampleModal"
-                        />
-                        {selection && (
-                          <>
-                            <div
-                              className="border-blue-500"
-                              style={{
-                                border: "2px solid #007bff",
-                                position: "absolute",
-                                left: selection.x,
-                                top: selection.y,
-                                width: selection.width,
-                                height: selection.height,
-                              }}
-                            ></div>
-                            <div
-                              className="modal fade"
-                              id="exampleModal"
-                              tabIndex="-1"
-                              aria-labelledby="exampleModalLabel"
-                              aria-hidden="true"
-                            >
-                              <div className="modal-dialog modal-dialog-centered">
-                                <div className="modal-content px-3 py-2">
-                                  <div className="modal-header">
-                                    <h1
-                                      className="modal-title fs-5"
-                                      id="exampleModalLabel"
-                                    >
-                                      Add Field Entity..
-                                    </h1>
-                                    <button
-                                      type="button"
-                                      className="btn-close"
-                                      data-bs-dismiss="modal"
-                                      aria-label="Close"
-                                    ></button>
-                                  </div>
-                                  <div className="modal-body">
-                                    <input
-                                      type="text"
-                                      className="form-control w-75"
-                                      placeholder="Field...."
-                                    />
-                                  </div>
-                                  <div className="modal-footer">
-                                    <button
-                                      type="button"
-                                      className="btn btn-secondary"
-                                      data-bs-dismiss="modal"
-                                    >
-                                      Close
-                                    </button>
-                                    <button
-                                      type="button"
-                                      className="btn btn-primary"
-                                      onClick={onSelectedHandler}
-                                    >
-                                      Save changes
-                                    </button>
-                                  </div>
-                                </div>
+                        ></div>
+                        <div
+                          className="modal fade"
+                          id="exampleModal"
+                          tabIndex="-1"
+                          aria-labelledby="exampleModalLabel"
+                          aria-hidden="true"
+                        >
+                          <div className="modal-dialog modal-dialog-centered">
+                            <div className="modal-content px-3 py-2">
+                              <div className="modal-header">
+                                <h1
+                                  className="modal-title fs-5 fw-semibold text-gray-600"
+                                  id="exampleModalLabel"
+                                >
+                                  Add Field Entity..
+                                </h1>
+                                <button
+                                  type="button"
+                                  className="btn-close"
+                                  data-bs-dismiss="modal"
+                                  aria-label="Close"
+                                  onClick={() => setSelection("")}
+                                ></button>
+                              </div>
+                              <div className="modal-body flex justify-between my-2">
+                                <input
+                                  required=""
+                                  className="input w-[72%] font-semibold bg-white text-lg focus:border-1 rounded-xl px-3 py-2  shadow-xl   focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"
+                                  type="text"
+                                  name="field"
+                                  placeholder="Field.."
+                                  value={inputField}
+                                  onChange={(e) =>
+                                    setInputField(e.target.value)
+                                  }
+                                />
+                                <button
+                                  type="button"
+                                  data-bs-dismiss="modal"
+                                  className="btn bg-teal-600 hover:bg-teal-500 text-white font-semibold"
+                                  onClick={onSelectedHandler}
+                                >
+                                  Save Field
+                                </button>
                               </div>
                             </div>
-                          </>
-                        )}
-                      </div>
+                          </div>
+                        </div>
+                      </>
                     )}
                   </div>
-                </li>
-              </ul>
-            </div>
-          </section>
+                )}
+              </li>
+            </ul>
+          </div>
         </div>
       )}
     </div>
