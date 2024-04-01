@@ -73,7 +73,7 @@ const ImageScanner = () => {
   };
 
   return (
-    <div className="flex">
+    <div className="flex h-[100vh]">
       {/* LEFT SECTION  */}
       <div className="flex w-[30%]">
         <div className="flex  w-16 flex-col justify-between border-e bg-white">
@@ -246,7 +246,7 @@ const ImageScanner = () => {
       {/* RIGHT SECTION  */}
 
       {!image ? (
-        <div className="flex justify-center items-center bg-gray-400 w-full">
+        <div className="flex justify-center items-center bg-gray-400 w-[70%]">
           <div className="">
             <ImageNotFound />
 
@@ -260,7 +260,7 @@ const ImageScanner = () => {
           </div>
         </div>
       ) : (
-        <div className="w-[70%] h-[90%] bg-gray-400 pb-2">
+        <div className="w-[70%] bg-gray-400 pb-2">
           <div className="mx-auto max-w-screen-xl px-2 lg:pt-2 sm:px-6 lg:px-8">
             <ul className="mt-2 flex justify-center pt-6 py-4">
               <li className="w-[65%]">
