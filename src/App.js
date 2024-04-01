@@ -6,6 +6,7 @@ import ImageScanner from "./components/ImageScanner/ImageScanner";
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.min.js"
 import "./App.css";
+import Csv_ZipFolder from "./components/Csv-Zip/Csv_ZipFolder";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<ImageUploader />} />
         <Route path="/scanner" element={<ImageScanner />} />
-        <Route path="*" element={<ImageUploader />} />
+        <Route path="/uploadcsv" element={<Csv_ZipFolder />} />
       </Routes>
       <Footer />
     </Router>
