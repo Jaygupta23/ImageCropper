@@ -93,7 +93,7 @@ const ImageScanner = () => {
   return (
     <div className="flex">
       {/* LEFT SECTION  */}
-      <div className="flex w-[35%]">
+      <div className="flex w-[40%]">
         <div className="flex h-screen w-16 flex-col justify-between border-e bg-white">
           <div>
             <div className="inline-flex size-16 items-center justify-center">
@@ -190,33 +190,7 @@ const ImageScanner = () => {
         <div className="flex h-screen flex-1 flex-col justify-between border-e bg-white">
           <div className="px-4 py-6">
             <ul className="mt-14 space-y-1">
-              <li>
-                <details className="group [&_summary::-webkit-details-marker]:hidden mt-7">
-                  <summary className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:text-gray-700">
-                    {selection && (
-                      <div className="w-72 flex gap-4">
-                        <select
-                          onChange={(e) => setSelectedOption(e.target.value)}
-                          name="selectedFields"
-                          id="selectedFields"
-                          className="rounded-lg border-gray-300 text-gray-700 sm:text-sm px-4 py-2 w-full bg-white shadow-sm focus:outline-none focus:border-blue-500"
-                        >
-                          <option value="">Please select</option>
-                          <option value="Subjects">Subjects</option>
-                          <option value="Roll Number">Roll Numbers</option>
-                          <option value="Series">Series</option>
-                        </select>
-                        <button
-                          onClick={onSelectedHandler}
-                          className="inline-block rounded border border-green-600 px-6 py-2 text-sm font-medium text-white bg-green-400 hover:bg-green-600  focus:outline-none focus:ring active:bg-indigo-500"
-                        >
-                          Submit
-                        </button>
-                      </div>
-                    )}
-                  </summary>
-                </details>
-              </li>
+              
               <li
                 style={{ marginTop: "40px" }}
                 className="block w-full rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700"
@@ -229,16 +203,16 @@ const ImageScanner = () => {
                           Name
                         </th>
                         <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                          width
-                        </th>
-                        <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                          height
-                        </th>
-                        <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                           x-coordinate
                         </th>
                         <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                           y-coordinate
+                        </th>
+                        <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                          width
+                        </th>
+                        <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                          height
                         </th>
                       </tr>
                     </thead>
@@ -251,16 +225,16 @@ const ImageScanner = () => {
                               {data.name}
                             </td>
                             <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                              {data.width}
-                            </td>
-                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                              {data.height}
-                            </td>
-                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">
                               {data.x}
                             </td>
                             <td className="whitespace-nowrap px-4 py-2 text-gray-700">
                               {data.y}
+                            </td>
+                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                              {data.width}
+                            </td>
+                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                              {data.height}
                             </td>
                           </tr>
                         ))}
@@ -290,7 +264,7 @@ const ImageScanner = () => {
           </div>
         </div>
       ) : (
-        <div className="w-[65%] bg-gray-400">
+        <div className="w-[60%] bg-gray-400">
           <section>
             <div className="mx-auto max-w-screen-xl px-2 lg:pt-2 sm:px-6 lg:px-8">
               <ul className="mt-2 flex justify-center pt-6">
@@ -373,6 +347,7 @@ const ImageScanner = () => {
                                     <button
                                       type="button"
                                       className="btn btn-primary"
+                                      onClick={onSelectedHandler}
                                     >
                                       Save changes
                                     </button>
