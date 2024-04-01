@@ -3,6 +3,8 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import ImageUploader from "./components/ImageUploader/ImageUploader";
 import ImageScanner from "./components/ImageScanner/ImageScanner";
+import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap/dist/js/bootstrap.min.js"
 import "./App.css";
 
 function App() {

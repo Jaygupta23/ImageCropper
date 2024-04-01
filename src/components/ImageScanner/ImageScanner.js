@@ -190,10 +190,9 @@ const ImageScanner = () => {
         <div className="flex h-screen flex-1 flex-col justify-between border-e bg-white">
           <div className="px-4 py-6">
             <ul className="mt-14 space-y-1">
-            
               <li>
                 <details className="group [&_summary::-webkit-details-marker]:hidden mt-7">
-                  <summary className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 bg-gray-100 hover:text-gray-700">
+                  <summary className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:text-gray-700">
                     {selection && (
                       <div className="w-72 flex gap-4">
                         <select
@@ -285,19 +284,16 @@ const ImageScanner = () => {
               Please Select Image...
             </h1>
 
-            <p className="mt-4 text-gray-500 text-center">We can't find that page!!</p>
+            <p className="mt-4 text-gray-500 text-center">
+              We can't find that page!!
+            </p>
           </div>
         </div>
       ) : (
         <div className="w-[65%] bg-gray-400">
           <section>
-            <div className="mx-auto max-w-screen-xl px-2 py-2 sm:px-6 sm:py-6 lg:px-8">
-              <header className="text-center">
-                <h1 className="text-2xl mb-6 font-bold text-white sm:text-3xl">
-                  Selected Image
-                </h1>
-              </header>
-              <ul className="mt-2 flex justify-center items-center">
+            <div className="mx-auto max-w-screen-xl px-2 lg:pt-2 sm:px-6 lg:px-8">
+              <ul className="mt-2 flex justify-center pt-6">
                 <li>
                   <div>
                     {image && (
@@ -313,26 +309,78 @@ const ImageScanner = () => {
                           alt="Selected"
                           style={{
                             width: "750px",
-                            height: "750px",
+                            height: "810px",
                             cursor: "crosshair",
                           }}
                           onMouseDown={handleMouseDown}
                           onMouseUp={handleMouseUp}
                           onMouseMove={handleMouseMove}
                           draggable={false}
+                          data-bs-toggle="modal"
+                          data-bs-target="#exampleModal"
                         />
                         {selection && (
-                          <div
-                            className="border-blue-500"
-                            style={{
-                              border: "2px solid #007bff",
-                              position: "absolute",
-                              left: selection.x,
-                              top: selection.y,
-                              width: selection.width,
-                              height: selection.height,
-                            }}
-                          ></div>
+                          <>
+                            <div
+                              className="border-blue-500"
+                              style={{
+                                border: "2px solid #007bff",
+                                position: "absolute",
+                                left: selection.x,
+                                top: selection.y,
+                                width: selection.width,
+                                height: selection.height,
+                              }}
+                            ></div>
+                            <div
+                              className="modal fade"
+                              id="exampleModal"
+                              tabIndex="-1"
+                              aria-labelledby="exampleModalLabel"
+                              aria-hidden="true"
+                            >
+                              <div className="modal-dialog modal-dialog-centered">
+                                <div className="modal-content px-3 py-2">
+                                  <div className="modal-header">
+                                    <h1
+                                      className="modal-title fs-5"
+                                      id="exampleModalLabel"
+                                    >
+                                      Add Field Entity..
+                                    </h1>
+                                    <button
+                                      type="button"
+                                      className="btn-close"
+                                      data-bs-dismiss="modal"
+                                      aria-label="Close"
+                                    ></button>
+                                  </div>
+                                  <div className="modal-body">
+                                    <input
+                                      type="text"
+                                      className="form-control w-75"
+                                      placeholder="Field...."
+                                    />
+                                  </div>
+                                  <div className="modal-footer">
+                                    <button
+                                      type="button"
+                                      className="btn btn-secondary"
+                                      data-bs-dismiss="modal"
+                                    >
+                                      Close
+                                    </button>
+                                    <button
+                                      type="button"
+                                      className="btn btn-primary"
+                                    >
+                                      Save changes
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </>
                         )}
                       </div>
                     )}
