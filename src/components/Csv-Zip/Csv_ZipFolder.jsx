@@ -4,12 +4,12 @@ const Csv_ZipFolder = () => {
   return (
     <>
       <div className="flex justify-center gap-5 h-[90vh] my-5 pt-3">
-        <div className="me-5 max-w-xl border-4 border-dashed  border-indigo-400 h-[50%] w-[25%] rounded-3xl p-8 text-center shadow-lg">
+        <div className="me-5 max-w-xl border-4 border-dashed h-[50%] w-[25%] p-8 text-center shadow-lg shadow-blue-400" style={{borderColor: "skyblue", borderRadius: "60px"}}>
           <img
             src={UploadFile}
             alt="uploadIcon"
             width={"25%"}
-            className=" mx-auto mt-5 pt-5 mb-4"
+            className=" mx-auto mt-5 pt-3 mb-4"
           />
           <h2 className=" text-xl font-semibold text-gray-500 mb-4 mt-5">
             Drag and Drop file to upload <br /> or{" "}
@@ -34,12 +34,12 @@ const Csv_ZipFolder = () => {
         </div>
         {/* 2nd section */}
 
-        <div className="ms-5 max-w-xl border-4 border-dashed  border-indigo-400 h-[50%] w-[25%] rounded-3xl p-8 text-center shadow-lg ">
+        <div className="ms-5 max-w-xl border-4 border-dashed  h-[50%] w-[25%] rounded-3xl p-8 text-center shadow-lg " style={{borderColor: "skyblue", borderRadius: "60px"}}>
           <img
             src={UploadFile}
             alt="uploadIcon"
             width={"25%"}
-            className=" mx-auto mt-5 pt-5 mb-4"
+            className=" mx-auto mt-5 pt-3 mb-4"
           />
 
           <h2 className=" text-xl font-semibold text-gray-500 mb-4 mt-5">
@@ -64,7 +64,7 @@ const Csv_ZipFolder = () => {
           </p>
         </div>
       </div>
-      <div className="flex justify-center bg-indigo-400 pt-2 mb-4">
+      <div className="flex justify-center bg-indigo-400 mb-5 pt-4">
         <button type="submit" className="btn btn-lg btn-success text-gray px-4 py-2 text-xl font-medium rounded-3xl">Save Files </button>       
       </div>
     </>
