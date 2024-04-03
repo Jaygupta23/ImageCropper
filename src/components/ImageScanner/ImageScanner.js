@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import ImageNotFound from "../ImageNotFound/ImageNotFound";
 import { MdDelete } from "react-icons/md";
 import "../../App.css";
@@ -14,6 +14,7 @@ const ImageScanner = () => {
   const imageRef = useRef(null);
 
   const location = useLocation();
+  const navigate = useNavigate()
 
   const { imageURL } = location.state ? location.state : "";
   useEffect(() => {
@@ -75,7 +76,7 @@ const ImageScanner = () => {
   return (
     <div className="flex h-[100vh]">
       {/* LEFT SECTION  */}
-      <div className="flex w-[30%]">
+      <div className="flex ">
         <div className="flex  w-16 flex-col justify-between border-e bg-white">
           <div>
             <div className="inline-flex size-16 items-center justify-center">
@@ -230,8 +231,11 @@ const ImageScanner = () => {
 
                 {/* Save Template */}
                 <a
-                  className="ms-auto group flex items-center  rounded-lg border border-indigo-600 bg-teal-600  py-2 w-[30%] transition-colors hover:bg-teal-700 focus:outline-none focus:ring"
+                  className="ms-auto group flex items-center  rounded-lg border border-indigo-600 bg-teal-600  py-2  transition-colors hover:bg-teal-700 focus:outline-none focus:ring"
                   href="#"
+                  onClick= {() => (
+                    navigate("/uploadcsv")
+                  )}
                 >
                   <span className="font-medium text-lg flex text-white transition-colors group-hover:text-indigo-600 group-active:text-indigo-500 mx-auto">
                     Save Template
@@ -246,7 +250,7 @@ const ImageScanner = () => {
       {/* RIGHT SECTION  */}
 
       {!image ? (
-        <div className="flex justify-center items-center bg-gray-400 w-[70%]">
+        <div className="flex justify-center items-center bg-gray-400 w-[70%">
           <div className="">
             <ImageNotFound />
 

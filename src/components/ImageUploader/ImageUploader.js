@@ -26,7 +26,7 @@ const ImageUploader = () => {
   return (
     <div>
       <section
-        className=" xl:flex justify-evenly h-screen"
+        className="w-[100%] xl:flex justify-evenly h-screen"
         style={{ backgroundColor: "#180C2E" }}
       >
         <div className="mx-auto max-w-screen-sm px-4 py-12 lg:flex lg:items-center flex-col">
@@ -39,7 +39,7 @@ const ImageUploader = () => {
           <div className="h-[35%] lg:w-[36rem] rounded-xl bg-white">
             <div className=" min-w-full divide-y-2 divide-gray-200 bg-white text-sm rounded-xl">
               <div className="divide-y divide-gray-200 text-md font-semibold text-gray-600">
-                <div className="flex">
+                <div className="flex px-2">
                 <div className="whitespace-nowrap px-4 py-3 text-lg font-semibold">
                   Template Name
                 </div>
@@ -58,7 +58,7 @@ const ImageUploader = () => {
                   </div>
                 </div>
                 </div>
-                <div className="overflow-y-scroll h-[220px]">
+                <div className="overflow-y-scroll h-[220px] px-5">
                 <div className="flex">
                   <div className="whitespace-nowrap px-4 py-2">
                     Omr Scanner 1
