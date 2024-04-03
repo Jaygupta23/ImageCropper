@@ -36,149 +36,131 @@ const ImageUploader = () => {
             </h1>
           </div>
 
-          <div className="h-[350px] overflow-hidden lg:w-[36rem] rounded-xl bg-white">
-          <table className=" min-w-full divide-y-2 divide-gray-200 bg-white text-sm rounded-xl">
-              <thead className="ltr:text-left rtl:text-right text-lg font-semibold">
-                <tr>
-                  <th className="whitespace-nowrap px-4 py-3  text-gray-600 ">
-                    Template Name
-                  </th>
-                  <th className="whitespace-nowrap px-4  py-2  text-gray-600">
-                    Other Data..
-                  </th>
-
-                  <th className="px-4 py-2">
-                    <div className="InputContainer w-48 h-11 flex items-center justify-center bg-gradient-to-b from-purple-200 to-pink-200 rounded-full overflow-hidden cursor-pointer shadow-sm">
-                      <input
-                        placeholder="Search.."
-                        id="input"
-                        className="w-44 h-8 bg-white border-none outline-none rounded-full pl-4 text-sm text-gray-700"
-                        name="text"
-                        type="text"
-                      />
-                    </div>
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-200 text-md font-semibold text-gray-600 overflow-y-scroll overflow-x-hidden h-[100%]">
-
-                <tr>
-                  <td className="whitespace-nowrap px-4 py-2 ">
+          <div className="h-[35%] lg:w-[36rem] rounded-xl bg-white">
+            <div className=" min-w-full divide-y-2 divide-gray-200 bg-white text-sm rounded-xl">
+              <div className="divide-y divide-gray-200 text-md font-semibold text-gray-600">
+                <div className="flex">
+                <div className="whitespace-nowrap px-4 py-3 text-lg font-semibold">
+                  Template Name
+                </div>
+                <div className="whitespace-nowrap px-4 py-3 text-lg text-gray-600">
+                  Other Data..
+                </div>
+                <div className="px-4 py-2">
+                  <div className="InputContainer w-48 h-11 flex items-center justify-center bg-gradient-to-b from-purple-200 to-pink-200 rounded-full overflow-hidden cursor-pointer shadow-sm">
+                    <input
+                      placeholder="Search.."
+                      id="input"
+                      className="w-44 h-8 bg-white border-none outline-none rounded-full pl-4 text-sm text-gray-700"
+                      name="text"
+                      type="text"
+                    />
+                  </div>
+                </div>
+                </div>
+                <div className="overflow-y-scroll h-[220px]">
+                <div className="flex">
+                  <div className="whitespace-nowrap px-4 py-2">
                     Omr Scanner 1
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-2 ">Omr details</td>
-                  <td className="whitespace-nowrap px-4 py-2 text-center">
+                  </div>
+                  <div className="whitespace-nowrap px-4 py-2">Omr details</div>
+                  <div className="whitespace-nowrap px-4 py-2 mx-auto">
                     <a
                       href="#"
-                      className="inline-block rounded bg-indigo-600  text-md px-4 py-1 font-medium text-white hover:bg-indigo-700"
+                      className="inline-block rounded bg-indigo-600 text-md px-4 py-1 font-medium text-white hover:bg-indigo-700"
                     >
                       View
                     </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="whitespace-nowrap px-4 py-2 ">
+                  </div>
+                </div>
+                <div className="flex">
+                  <div className="whitespace-nowrap px-4 py-2">
                     Omr Scanner 1
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-2 ">Omr details</td>
-                  <td className="whitespace-nowrap px-4 py-2 text-center">
+                  </div>
+                  <div className="whitespace-nowrap px-4 py-2">Omr details</div>
+                  <div className="whitespace-nowrap px-4 py-2 mx-auto">
                     <a
                       href="#"
-                      className="inline-block rounded bg-indigo-600  text-md px-4 py-1 font-medium text-white hover:bg-indigo-700"
+                      className="inline-block rounded bg-indigo-600 text-md px-4 py-1 font-medium text-white hover:bg-indigo-700"
                     >
                       View
                     </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="whitespace-nowrap px-4 py-2 ">
+                  </div>
+                </div>
+                <div className="flex">
+                  <div className="whitespace-nowrap px-4 py-2">
                     Omr Scanner 1
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-2 ">Omr details</td>
-                  <td className="whitespace-nowrap px-4 py-2 text-center">
+                  </div>
+                  <div className="whitespace-nowrap px-4 py-2">Omr details</div>
+                  <div className="whitespace-nowrap px-4 py-2 mx-auto">
                     <a
                       href="#"
-                      className="inline-block rounded bg-indigo-600  text-md px-4 py-1 font-medium text-white hover:bg-indigo-700"
+                      className="inline-block rounded bg-indigo-600 text-md px-4 py-1 font-medium text-white hover:bg-indigo-700"
                     >
                       View
                     </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="whitespace-nowrap px-4 py-2 ">
+                  </div>
+                </div>
+                <div className="flex">
+                  <div className="whitespace-nowrap px-4 py-2">
                     Omr Scanner 1
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-2 ">Omr details</td>
-                  <td className="whitespace-nowrap px-4 py-2 text-center">
+                  </div>
+                  <div className="whitespace-nowrap px-4 py-2">Omr details</div>
+                  <div className="whitespace-nowrap px-4 py-2 mx-auto">
                     <a
                       href="#"
-                      className="inline-block rounded bg-indigo-600  text-md px-4 py-1 font-medium text-white hover:bg-indigo-700"
+                      className="inline-block rounded bg-indigo-600 text-md px-4 py-1 font-medium text-white hover:bg-indigo-700"
                     >
                       View
                     </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="whitespace-nowrap px-4 py-2 ">
+                  </div>
+                </div>
+                <div className="flex">
+                  <div className="whitespace-nowrap px-4 py-2">
                     Omr Scanner 1
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-2 ">Omr details</td>
-                  <td className="whitespace-nowrap px-4 py-2 text-center">
+                  </div>
+                  <div className="whitespace-nowrap px-4 py-2">Omr details</div>
+                  <div className="whitespace-nowrap px-4 py-2 mx-auto">
                     <a
                       href="#"
-                      className="inline-block rounded bg-indigo-600  text-md px-4 py-1 font-medium text-white hover:bg-indigo-700"
+                      className="inline-block rounded bg-indigo-600 text-md px-4 py-1 font-medium text-white hover:bg-indigo-700"
                     >
                       View
                     </a>
-                  </td>
-                </tr>
-                
-                <tr>
-                  <td className="whitespace-nowrap px-4 py-2 ">
+                  </div>
+                </div>
+                <div className="flex">
+                  <div className="whitespace-nowrap px-4 py-2">
                     Omr Scanner 1
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-2 ">Omr details</td>
-                  <td className="whitespace-nowrap px-4 py-2 text-center">
+                  </div>
+                  <div className="whitespace-nowrap px-4 py-2">Omr details</div>
+                  <div className="whitespace-nowrap px-4 py-2 mx-auto">
                     <a
                       href="#"
-                      className="inline-block rounded bg-indigo-600  text-md px-4 py-1 font-medium text-white hover:bg-indigo-700"
+                      className="inline-block rounded bg-indigo-600 text-md px-4 py-1 font-medium text-white hover:bg-indigo-700"
                     >
                       View
                     </a>
-                  </td>
-                </tr>
-                
-                
-                <tr>
-                  <td className="whitespace-nowrap px-4 py-2 ">
+                  </div>
+                </div>
+                <div className="flex">
+                  <div className="whitespace-nowrap px-4 py-2">
                     Omr Scanner 1
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-2 ">Omr details</td>
-                  <td className="whitespace-nowrap px-4 py-2 text-center">
+                  </div>
+                  <div className="whitespace-nowrap px-4 py-2">Omr details</div>
+                  <div className="whitespace-nowrap px-4 py-2 mx-auto">
                     <a
                       href="#"
-                      className="inline-block rounded bg-indigo-600  text-md px-4 py-1 font-medium text-white hover:bg-indigo-700"
+                      className="inline-block rounded bg-indigo-600 text-md px-4 py-1 font-medium text-white hover:bg-indigo-700"
                     >
                       View
                     </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="whitespace-nowrap px-4 py-2 ">
-                    Omr Scanner 1
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-2 ">Omr details</td>
-                  <td className="whitespace-nowrap px-4 py-2 text-center">
-                    <a
-                      href="#"
-                      className="inline-block rounded bg-indigo-600 px-4 py-1 text-md font-medium text-white hover:bg-indigo-700"
-                    >
-                      View
-                    </a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+                  </div>
+                </div>
+              
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div className="mx-auto max-w-screen-sm px-4 py-12 lg:flex  lg:items-center flex-col">
