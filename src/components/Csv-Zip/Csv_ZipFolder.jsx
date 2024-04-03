@@ -3,7 +3,7 @@ import UploadFile from "../../assets/photo.png";
 const Csv_ZipFolder = () => {
   return (
     <>
-      <div className="flex justify-center gap-5 h-[90vh] my-5 pt-3">
+      <div className="flex justify-center gap-5 h-[90vh] my-5 pt-4">
         <div className="me-5 max-w-xl border-4 border-dashed h-[50%] w-[25%] p-8 text-center shadow-lg shadow-blue-400" style={{borderColor: "skyblue", borderRadius: "60px"}}>
           <img
             src={UploadFile}

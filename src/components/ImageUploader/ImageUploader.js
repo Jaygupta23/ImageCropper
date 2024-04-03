@@ -25,28 +25,183 @@ const ImageUploader = () => {
 
   return (
     <div>
-      <section class="bgImage">
-        <div class="mx-auto max-w-screen-sm px-4 py-12 lg:flex lg:h-screen lg:items-center flex-col">
-          <div className="mt-40">
-            <h1 className="text-white text-4xl mb-8 font-bold">
+      <section
+        className=" xl:flex justify-evenly h-screen"
+        style={{ backgroundColor: "#180C2E" }}
+      >
+        <div className="mx-auto max-w-screen-sm px-4 py-12 lg:flex lg:items-center flex-col">
+          <div className="mt-10 xl:mt-40">
+            <h1 className="text-white text-center text-4xl mb-4 font-bold">
+              Saved Templates
+            </h1>
+          </div>
+
+          <div className="h-[350px] overflow-hidden lg:w-[36rem] rounded-xl bg-white">
+          <table className=" min-w-full divide-y-2 divide-gray-200 bg-white text-sm rounded-xl">
+              <thead className="ltr:text-left rtl:text-right text-lg font-semibold">
+                <tr>
+                  <th className="whitespace-nowrap px-4 py-3  text-gray-600 ">
+                    Template Name
+                  </th>
+                  <th className="whitespace-nowrap px-4  py-2  text-gray-600">
+                    Other Data..
+                  </th>
+
+                  <th className="px-4 py-2">
+                    <div className="InputContainer w-48 h-11 flex items-center justify-center bg-gradient-to-b from-purple-200 to-pink-200 rounded-full overflow-hidden cursor-pointer shadow-sm">
+                      <input
+                        placeholder="Search.."
+                        id="input"
+                        className="w-44 h-8 bg-white border-none outline-none rounded-full pl-4 text-sm text-gray-700"
+                        name="text"
+                        type="text"
+                      />
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200 text-md font-semibold text-gray-600 overflow-y-scroll overflow-x-hidden h-[100%]">
+
+                <tr>
+                  <td className="whitespace-nowrap px-4 py-2 ">
+                    Omr Scanner 1
+                  </td>
+                  <td className="whitespace-nowrap px-4 py-2 ">Omr details</td>
+                  <td className="whitespace-nowrap px-4 py-2 text-center">
+                    <a
+                      href="#"
+                      className="inline-block rounded bg-indigo-600  text-md px-4 py-1 font-medium text-white hover:bg-indigo-700"
+                    >
+                      View
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="whitespace-nowrap px-4 py-2 ">
+                    Omr Scanner 1
+                  </td>
+                  <td className="whitespace-nowrap px-4 py-2 ">Omr details</td>
+                  <td className="whitespace-nowrap px-4 py-2 text-center">
+                    <a
+                      href="#"
+                      className="inline-block rounded bg-indigo-600  text-md px-4 py-1 font-medium text-white hover:bg-indigo-700"
+                    >
+                      View
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="whitespace-nowrap px-4 py-2 ">
+                    Omr Scanner 1
+                  </td>
+                  <td className="whitespace-nowrap px-4 py-2 ">Omr details</td>
+                  <td className="whitespace-nowrap px-4 py-2 text-center">
+                    <a
+                      href="#"
+                      className="inline-block rounded bg-indigo-600  text-md px-4 py-1 font-medium text-white hover:bg-indigo-700"
+                    >
+                      View
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="whitespace-nowrap px-4 py-2 ">
+                    Omr Scanner 1
+                  </td>
+                  <td className="whitespace-nowrap px-4 py-2 ">Omr details</td>
+                  <td className="whitespace-nowrap px-4 py-2 text-center">
+                    <a
+                      href="#"
+                      className="inline-block rounded bg-indigo-600  text-md px-4 py-1 font-medium text-white hover:bg-indigo-700"
+                    >
+                      View
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="whitespace-nowrap px-4 py-2 ">
+                    Omr Scanner 1
+                  </td>
+                  <td className="whitespace-nowrap px-4 py-2 ">Omr details</td>
+                  <td className="whitespace-nowrap px-4 py-2 text-center">
+                    <a
+                      href="#"
+                      className="inline-block rounded bg-indigo-600  text-md px-4 py-1 font-medium text-white hover:bg-indigo-700"
+                    >
+                      View
+                    </a>
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td className="whitespace-nowrap px-4 py-2 ">
+                    Omr Scanner 1
+                  </td>
+                  <td className="whitespace-nowrap px-4 py-2 ">Omr details</td>
+                  <td className="whitespace-nowrap px-4 py-2 text-center">
+                    <a
+                      href="#"
+                      className="inline-block rounded bg-indigo-600  text-md px-4 py-1 font-medium text-white hover:bg-indigo-700"
+                    >
+                      View
+                    </a>
+                  </td>
+                </tr>
+                
+                
+                <tr>
+                  <td className="whitespace-nowrap px-4 py-2 ">
+                    Omr Scanner 1
+                  </td>
+                  <td className="whitespace-nowrap px-4 py-2 ">Omr details</td>
+                  <td className="whitespace-nowrap px-4 py-2 text-center">
+                    <a
+                      href="#"
+                      className="inline-block rounded bg-indigo-600  text-md px-4 py-1 font-medium text-white hover:bg-indigo-700"
+                    >
+                      View
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="whitespace-nowrap px-4 py-2 ">
+                    Omr Scanner 1
+                  </td>
+                  <td className="whitespace-nowrap px-4 py-2 ">Omr details</td>
+                  <td className="whitespace-nowrap px-4 py-2 text-center">
+                    <a
+                      href="#"
+                      className="inline-block rounded bg-indigo-600 px-4 py-1 text-md font-medium text-white hover:bg-indigo-700"
+                    >
+                      View
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div className="mx-auto max-w-screen-sm px-4 py-12 lg:flex  lg:items-center flex-col">
+          <div className="mt-10 xl:mt-40">
+            <h1 className="text-white text-center text-4xl mb-4 font-bold">
               OMR India Outsources{" "}
             </h1>
           </div>
-          <div class="mx-auto max-w-xxl border-2 border-dashed  border-white h-[35%] w-[90%] rounded-lg p-8 text-center ">
+          <div className="mx-auto max-w-xxl border-3 rounded-[4%] border-dashed  border-green-400 h-[35%] lg:w-[36rem]  py-8 px-32 text-center">
             <svg
-              class="mx-auto h-20 w-20 text-gray-300"
+              className="mx-auto h-20 w-20 text-gray-300"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M12 6v6m0 0v6m0-6h6m-6 0H6"
               ></path>
             </svg>
-            <h2 class="mt-1 text-lg font-large text-white mb-6">
+            <h2 className="mt-1 text-lg font-large text-white mb-6">
               Create Template
             </h2>
             <div className="relative flex justify-center">
