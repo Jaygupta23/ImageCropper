@@ -14,7 +14,6 @@ const Header = () => {
             </div>
             <label
               className="ms-auto font-medium me-5 text-white bg-gradient-to-r from-purple-600 to-indigo-700 rounded-xl shadow-md cursor-pointer select-none text-lg px-6 py-2 hover:shadow-xl active:shadow-md"
-            
             >
               <span>Create Template</span>
             </label>
