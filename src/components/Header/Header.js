@@ -1,6 +1,11 @@
 import React from "react";
 import logo from "../../assets/logo.png";
+import { useNavigate } from "react-router-dom";
 const Header = () => {
+  const navigate = useNavigate()
+  const createTemplate = (e) => {
+    navigate("/uploader")
+  }
   return (
     <div>
       <header className="bg-gray-100">
@@ -14,7 +19,8 @@ const Header = () => {
             </div>
             <label
               className="ms-auto font-medium me-5 text-white bg-gradient-to-r from-purple-600 to-indigo-700 rounded-xl shadow-md cursor-pointer select-none text-lg px-6 py-2 hover:shadow-xl active:shadow-md"
-            >
+              onClick={createTemplate}
+           >
               <span>Create Template</span>
             </label>
           </div>

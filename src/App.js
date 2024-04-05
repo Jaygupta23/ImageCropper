@@ -14,9 +14,9 @@ function App() {
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<ImageUploader />} />
+        <Route path="/" element={<Csv_Zip />} />
+        <Route path="/uploader" element={<ImageUploader />} />
         <Route path="/scanner" element={<ImageScanner />} />
-        <Route path="/uploadcsv" element={<Csv_Zip />} />
         <Route path="/mapping" element={<Mapping />} />
       </Routes>
       <Footer />
