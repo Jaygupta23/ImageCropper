@@ -132,38 +132,42 @@ const Mapping = () => {
                   // onClick={() => setSelection("")}
                 ></button>
               </div>
-              <div className="modal-body text-lg text-gray-600 font-semibold my-2">
+              <div className="modal-body text-lg text-gray-600 font-semibold my-2 overflow-y-auto h-[180px]">
                 <p className="flex justify-evenly">
                   {" "}
-                  header <FaArrowRightLong className="mt-2" /> field
+                  header{" "}
+                  <FaArrowRightLong className="mt-1 fs-5 text-teal-600" /> field
                 </p>
                 <p className="flex justify-evenly">
                   {" "}
-                  header <FaArrowRightLong className="mt-2" /> field
+                  header{" "}
+                  <FaArrowRightLong className="mt-1 fs-5 text-teal-600" /> field
                 </p>
                 <p className="flex justify-evenly">
                   {" "}
-                  header <FaArrowRightLong className="mt-2" /> field
+                  header{" "}
+                  <FaArrowRightLong className="mt-1 fs-5 text-teal-600" /> field
                 </p>
                 <p className="flex justify-evenly">
                   {" "}
-                  header <FaArrowRightLong className="mt-2" /> field
+                  header{" "}
+                  <FaArrowRightLong className="mt-1 fs-5 text-teal-600" /> field
                 </p>
                 <p className="flex justify-evenly">
                   {" "}
-                  header <FaArrowRightLong className="mt-2" /> field
+                  header{" "}
+                  <FaArrowRightLong className="mt-1 fs-5 text-teal-600" /> field
                 </p>
                 <p className="flex justify-evenly">
                   {" "}
-                  header <FaArrowRightLong className="mt-2" /> field
+                  header{" "}
+                  <FaArrowRightLong className="mt-1 fs-5 text-teal-600" /> field
                 </p>
-                <p className="flex justify-evenly">
-                  {" "}
-                  header <FaArrowRightLong className="mt-2" /> field
-                </p>
+               
+               
               </div>
               <label
-                className=" font-medium mb-3 ms-auto me-3 text-white bg-teal-600 hover:bg-teal-500 rounded-xl
+                className=" font-medium my-3 ms-auto me-3 text-white bg-teal-600 hover:bg-teal-500 rounded-xl
                 shadow-md cursor-pointer select-none text-xl px-8 py-1 hover:shadow-xl active:shadow-md"
               >
                 <span>Submit</span>
