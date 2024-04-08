@@ -1,7 +1,13 @@
 import React from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
+import {useNavigate} from "react-router-dom"
 
 const Mapping = () => {
+  const navigate = useNavigate()
+  const onHandleSubmit = () => {
+    navigate("/changer")
+  }
+
   return (
     <div className="py-24" style={{ backgroundColor: "#180C2E" }}>
       <h1 className="text-white text-4xl text-center mb-5">Mapping</h1>
@@ -168,7 +174,9 @@ const Mapping = () => {
               </div>
               <label
                 className=" font-medium my-3 ms-auto me-3 text-white bg-teal-600 hover:bg-teal-500 rounded-xl
-                shadow-md cursor-pointer select-none text-xl px-8 py-1 hover:shadow-xl active:shadow-md"
+                shadow-md cursor-pointer select-none text-xl px-8 py-1 hover:shadow-xl active:shadow-md" 
+                data-bs-dismiss="modal"
+                onClick={onHandleSubmit}
               >
                 <span>Submit</span>
               </label>

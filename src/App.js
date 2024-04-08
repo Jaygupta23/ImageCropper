@@ -8,6 +8,7 @@ import "bootstrap/dist/js/bootstrap.min.js"
 import "./App.css";
 import Csv_Zip from "./components/Csv-Zip/Csv_Zip";
 import Mapping from "./components/Mapping/Mapping";
+import ImageChanger from "./components/ImageChanger/ImageChanger";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/uploader" element={<ImageUploader />} />
         <Route path="/scanner" element={<ImageScanner />} />
         <Route path="/mapping" element={<Mapping />} />
+        <Route path="/Changer" element={<ImageChanger />} />
       </Routes>
       <Footer />
     </Router>

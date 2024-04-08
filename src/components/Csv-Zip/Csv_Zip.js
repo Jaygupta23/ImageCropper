@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import UploadFile from "../../assets/photo.png";
+import {useNavigate} from "react-router-dom"
 
 const Testing = () => {
   const [csvFile, setCsvFile] = useState(null);
@@ -35,17 +36,17 @@ const Testing = () => {
       setImageFolder(file);
     }
   };
-
+  const navigate = useNavigate();
   const onSaveFilesHandler = async () => {
-    if (!csvFile || !imageFolder) {
-      alert("Please upload both CSV and image folder.");
-      return;
-    }
-
+    // if (!csvFile || !imageFolder) {
+    //   alert("Please upload both CSV and image folder.");
+    //   return;
+    // }
+    navigate("/mapping")
     const formData = new FormData();
     formData.append("csvFile", csvFile);
     formData.append("zipFile", imageFolder);
-
+    
     try {
       const response = await axios.post(
         "http://192.168.0.116:4000/upload/2",
