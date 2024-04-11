@@ -76,7 +76,7 @@ const ImageScanner = () => {
   return (
     <div className="flex h-[100vh]">
       {/* LEFT SECTION  */}
-        <div className="flex flex-1 flex-col justify-between border-e bg-white">
+        <div className="flex flex-1 flex-col justify-between border-e bg-white w-[30%]">
           <div className="px-4 py-6">
             <ul className="mt-14 space-y-1 ">
               <li

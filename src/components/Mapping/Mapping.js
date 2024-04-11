@@ -13,7 +13,7 @@ const Mapping = () => {
       <h1 className="text-white text-4xl text-center mb-5">Mapping</h1>
       <div className=" flex xl:mx-32">
         <select
-          class="form-select form-select-lg mb-3 text-2xl font-semibold text-center"
+          className="form-select form-select-lg mb-3 text-2xl font-semibold text-center"
           aria-label="Large select example"
         >
           <option selected>Csv Header Name</option>
@@ -25,7 +25,7 @@ const Mapping = () => {
         {/* User Typed field */}
 
         <select
-          class="form-select form-select-lg mb-3 text-2xl offset-3 font-semibold text-center"
+          className="form-select form-select-lg mb-3 text-2xl offset-3 font-semibold text-center"
           aria-label="Large select example"
         >
           <option selected>User Field Name</option>
@@ -36,7 +36,7 @@ const Mapping = () => {
       </div>
       <div className="mt-3 flex xl:mx-32">
         <select
-          class="form-select form-select-lg mb-3 text-2xl font-semibold text-center"
+          className="form-select form-select-lg mb-3 text-2xl font-semibold text-center"
           aria-label="Large select example"
         >
           <option selected>Csv Header Name</option>
@@ -48,7 +48,7 @@ const Mapping = () => {
         {/* User Typed field */}
 
         <select
-          class="form-select form-select-lg mb-3 text-2xl offset-3 font-semibold text-center"
+          className="form-select form-select-lg mb-3 text-2xl offset-3 font-semibold text-center"
           aria-label="Large select example"
         >
           <option selected>User Field Name</option>
@@ -59,7 +59,7 @@ const Mapping = () => {
       </div>
       <div className="mt-3 flex xl:mx-32">
         <select
-          class="form-select form-select-lg mb-3 text-2xl font-semibold text-center"
+          className="form-select form-select-lg mb-3 text-2xl font-semibold text-center"
           aria-label="Large select example"
         >
           <option selected>Csv Header Name</option>
@@ -71,7 +71,7 @@ const Mapping = () => {
         {/* User Typed field */}
 
         <select
-          class="form-select form-select-lg mb-3 text-2xl offset-3 font-semibold text-center"
+          className="form-select form-select-lg mb-3 text-2xl offset-3 font-semibold text-center"
           aria-label="Large select example"
         >
           <option selected>User Field Name</option>
@@ -83,7 +83,7 @@ const Mapping = () => {
 
       <div className="mt-3 flex xl:mx-32">
         <select
-          class="form-select form-select-lg mb-3 text-2xl font-semibold text-center"
+          className="form-select form-select-lg mb-3 text-2xl font-semibold text-center"
           aria-label="Large select example"
         >
           <option selected>Csv Header Name</option>
@@ -95,7 +95,7 @@ const Mapping = () => {
         {/* User Typed field */}
 
         <select
-          class="form-select form-select-lg mb-3 text-2xl offset-3 font-semibold text-center"
+          className="form-select form-select-lg mb-3 text-2xl offset-3 font-semibold text-center"
           aria-label="Large select example"
         >
           <option selected>User Field Name</option>

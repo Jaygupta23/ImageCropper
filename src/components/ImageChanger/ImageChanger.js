@@ -1,82 +1,38 @@
-import React, { useState, useRef, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import ImageNotFound from "../ImageNotFound/ImageNotFound";
-import { MdDelete } from "react-icons/md";
-import "../../App.css";
-import imageChange from "../../assets/Screenshot 2024-03-28 150535.png";
-import { GrCaretNext, GrCaretPrevious } from "react-icons/gr";
+import React, { useEffect, useState } from "react";
+import image from "../../assets/Screenshot 2024-03-28 150535.png";
+import screenshotImage1 from "../../assets/Screenshot 2024-04-10 102127.png";
+import screenshotImage2 from "../../assets/Screenshot 2024-04-10 102137.png";
+import screenshotImage3 from "../../assets/Screenshot 2024-04-10 102146.png";
+import screenshotImage4 from "../../assets/Screenshot 2024-04-10 160230.png";
+import { FaImage } from "react-icons/fa6";
+import '../../App.css'
 
 const ImageChanger = () => {
-  const [image, setImage] = useState(null);
-  const [selection, setSelection] = useState(null);
-  const [dragStart, setDragStart] = useState(null);
-  // const [selectedOption, setSelectedOption] = useState("");
-  const [inputField, setInputField] = useState("");
-  const [allSelectedData, setAllSelectedData] = useState([]);
   const [popUp, setPopUp] = useState(true);
-  const imageRef = useRef(null);
+  const [viewImage, setViewImage] = useState(false);
+  const [showImages, setShowImages] = useState({
+    image1: true,
+    image2: false,
+    image3: false,
+    image4: false,
+  });
 
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  const { imageURL } = location.state ? location.state : "";
-  useEffect(() => {
-    setImage(imageURL);
-  }, []);
-
-  // Function to handle mouse down event for drag selection
-  // const handleMouseDown = (e) => {
-  //   const boundingRect = imageRef.current.getBoundingClientRect();
-  //   const offsetX = e.clientX - boundingRect.left;
-  //   const offsetY = e.clientY - boundingRect.top;
-  //   setDragStart({ x: offsetX, y: offsetY });
-  // };
-
-  // Function to handle mouse up event for drag selection
-  // const handleMouseUp = () => {
-  //   if (dragStart) {
-  //     setDragStart(null);
-  //     // Remove event listener for mousemove when dragging ends
-  //   }
-  // };
-  // // Function to handle mouse move event for drag selection
-  // const handleMouseMove = (e) => {
-  //   if (!e.buttons || !dragStart) {
-  //     return;
-  //   }
-
-  //   const boundingRect = imageRef?.current.getBoundingClientRect();
-  //   const offsetX = e.clientX - boundingRect.left;
-  //   const offsetY = e.clientY - boundingRect.top;
-
-  //   setSelection({
-  //     x: Math.min(dragStart.x, offsetX),
-  //     y: Math.min(dragStart.y, offsetY),
-  //     width: Math.abs(offsetX - dragStart.x),
-  //     height: Math.abs(offsetY - dragStart.y),
-  //   });
-  // };
-
-  // Function to submit drag selection and name of options like -> Roll Number , or Subject
-  const onSelectedHandler = () => {
-    if (inputField) {
-      const newObj = {
-        ...selection,
-        id: Math.random().toString(),
-        name: inputField,
-      };
-
-      setAllSelectedData((prev) => [...prev, newObj]);
-
-      setInputField("");
-      setSelection(null);
-      setDragStart(null);
-    } else {
-      alert("Please select option!");
-    }
+  const handleInputClick = (imageKey) => {
+    setViewImage(false);
+    setShowImages((prevState) => ({
+      image1: false,
+      image2: false,
+      image3: false,
+      image4: false,
+      [imageKey]: true,
+    }));
   };
+
   const onclickHandler = () => {
     setPopUp(false);
+  };
+  const viewImageHandler = () => {
+    setViewImage(!viewImage);
   };
   return (
     <>
@@ -100,240 +56,222 @@ const ImageChanger = () => {
         </div>
       )}
       {!popUp && (
-        <div className="flex h-[100vh]">
-          {/* LEFT SECTION  */}
+        <>
+          <div className=" bg-slate-500">
+            {/* LEFT SECTION  */}
 
-          <div className="flex flex-1 flex-col justify-between border-e bg-slate-300">
-            <div className="px-4 py-6">
-              <ul className="my-14 space-y-1 ">
-                {/* <li
-                style={{ marginTop: "40px" }}
-                className="block w-full rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium  mb-5"
-              >
-                <div className="overflow-x-auto">
-                  <table className="mt-3 table border-collapse border border-slate-400 min-w-full divide-y-2 divide-gray-200 bg-white text-sm rounded-lg">
-                    <thead className="ltr:text-left rtl:text-right">
-                      <tr>
-                        <th className="text-center whitespace-nowrap px-4 py-2 font-semibold text-lg text-gray-100">
-                          Field
-                        </th>
-                        <th className="text-center whitespace-nowrap px-4 py-2 font-semibold text-lg text-gray-100">
-                          Delete
-                        </th>
-                      </tr>
-                    </thead>
+            <div className="flex border-e  ">
+              {/* Form Field Area */}
 
-                    <tbody className="divide-y divide-gray-200">
-                      {allSelectedData &&
-                        allSelectedData?.map((data) => (
-                          <tr key={data.id} className="odd:bg-gray-50">
-                            <td className="whitespace-nowrap px-4 py-2 text-center font-semibold text-md text-gray-900">
-                              {data.name}
-                            </td>
-                            <td className="whitespace-nowrap px-4 py-2 text-center font-semibold text-md text-gray-900">
-                              <MdDelete className="mx-auto text-red-500 text-xl" />
-                            </td>
-                          </tr>
-                        ))}
-                    </tbody>
-                  </table>
-                </div>
-              </li> */}
-
-                {/* Form Field Area */}
-
-                <div className=" bg-gradient-to-b from-white to-gray-100 rounded-3xl px-4 pt-1 pb-4 border-1 border-gray shadow-md mb-10 mx-2">
-                  <form action="" className="form">
-                    <h1 className="text-2xl font-semibold my-3 text-gray-600">
-                      Student Data
-                    </h1>
-                    <div>
+              <div className=" flex flex-col  py-4 w-[40%] overflow-hidden">
+                <article className="overflow-hidden rounded-lg ps-3 py-3 shadow transition hover:shadow-lg bg-slate-300 m-3 ">
+                  <div className="w-5/6 px-3 py-2">
+                    <label
+                      className="text-xl font-semibold pb-2 leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      htmlFor="name"
+                    >
+                      Name
+                    </label>
+                    <div className="flex">
                       <input
-                        required=""
-                        className="input w-full font-semibold bg-white  border-none rounded-xl p-3 mb-3 shadow-xl   focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"
                         type="text"
-                        name=""
-                        placeholder="Name.."
+                        id="name"
+                        className="input font-semibold bg-white border-none border-gray-300 w-full  rounded-lg p-2 text-lg shadow-xl focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"
+                        placeholder="Candidate Name.."
+                      />
+                      <div className="mx-3 my-1 rounded-2 bg-slate-400">
+                      <FaImage
+                        className=" text-light text-4xl px-1"
+                        onClick={() => handleInputClick("image1")}
+                      />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="w-5/6 px-3 py-2">
+                    <label
+                      className="text-xl font-semibold pb-2 leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      htmlFor="class"
+                    >
+                      Class
+                    </label>
+                    <div className="flex">
+                      <input
+                        type="text"
+                        id="class"
+                        className="input font-semibold bg-white border-none border-gray-300  rounded-lg p-2 text-lg shadow-xl w-full focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"
+                        placeholder="Class.."
+                      />
+                     <div className="mx-3 my-1 rounded-2 bg-slate-400">
+                      <FaImage
+                        className=" text-light text-4xl px-1"
+                        onClick={() => handleInputClick("image2")}
+                      />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="w-5/6 px-3 py-2">
+                    <label
+                      className="text-xl font-semibold pb-2 leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      htmlFor="schoolname"
+                    >
+                      School Name
+                    </label>
+                    <div className="flex">
+                      <input
+                        type="text"
+                        id="schoolname"
+                        className="input font-semibold bg-white border-none border-gray-300  rounded-lg p-2 text-lg shadow-xl w-full focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"
+                        placeholder="School Name.."
+                      />
+                      <div className="mx-3 my-1 rounded-2 bg-slate-400">
+                      <FaImage
+                        className=" text-light text-4xl px-1"
+                        onClick={() => handleInputClick("image3")}
+                      />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    className="w-3/6 py-2"
+                    onClick={() => handleInputClick("image4")}
+                  >
+                    <div className="flex mb-1">
+                      <label
+                        className="text-xl mx-3  font-semibold py-2 mt-1 leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                        htmlFor="questions"
+                      >
+                        Questions:
+                      </label>
+                      <div className=" my-1 rounded-2 bg-slate-400">
+                      <FaImage
+                        className=" text-light text-4xl px-1"
+                        onClick={() => handleInputClick("image1")}
+                      />
+                      </div>
+                    </div>
+                    <div className=" px-2 mx-3 py-2 flex">
+                      <lable className="text-xl font-semibold mt-1 me-2">
+                        1.
+                      </lable>
+                      <input
+                        type="text"
+                        className="input font-semibold me-2 bg-white border-none border-gray-300  rounded-lg px-2 py-1 text-lg shadow-xl w-full focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"
+                        placeholder="Question1.."
+                        id="questions"
                       />
                     </div>
-                    <input
-                      required=""
-                      className="input w-full font-semibold bg-white border-none rounded-xl p-3 mb-3 shadow-xl   focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none focus:outline-none"
-                      type="text"
-                      name="feildData"
-                      placeholder="School Name.."
-                    />
-                    <input
-                      required=""
-                      className="input w-full font-semibold bg-white border-none rounded-xl p-3 mb-3 shadow-xl   focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none focus:outline-none"
-                      type="text"
-                      name="feildData"
-                      placeholder="Roll No.."
-                    />
-                    <input
-                      required=""
-                      className="input w-full font-semibold bg-white border-none rounded-xl p-3 mb-3 shadow-xl   focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none focus:outline-none"
-                      type="text"
-                      name="feildData"
-                      placeholder="Questions.."
-                    />
-                    <input
-                      required=""
-                      className="input w-full font-semibold bg-white border-none rounded-xl p-3 mb-3 shadow-xl   focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none focus:outline-none"
-                      type="text"
-                      name="feildData"
-                      placeholder="Image.."
-                    />
-                  </form>
-                </div>
+                    <div className=" px-2 mx-3 py-2 flex">
+                      <lable className="text-xl font-semibold mt-1 me-2">
+                        2.
+                      </lable>
+                      <input
+                        type="text"
+                        className="input font-semibold me-2 bg-white border-none border-gray-300  rounded-lg px-2 py-1 text-lg shadow-xl w-full focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"
+                        placeholder="Question2.."
+                      />
+                    </div>
+                    <div className="mx-3 px-2 py-2 flex">
+                      <lable className="text-xl font-semibold mt-1 me-2">
+                        3.
+                      </lable>
+                      <input
+                        type="text"
+                        className="input font-semibold me-2 bg-white border-none border-gray-300  rounded-lg px-2 py-1 text-lg shadow-xl w-full focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"
+                        placeholder="Question3.."
+                      />
+                    </div>
+                    <div className="mx-3 px-2 py-2 flex">
+                      <lable className="text-xl font-semibold mt-1 me-2">
+                        4.
+                      </lable>
+                      <input
+                        type="text"
+                        className="input font-semibold me-2 bg-white border-none border-gray-300  rounded-lg px-2 py-1 text-lg shadow-xl w-full focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"
+                        placeholder="Question4.."
+                      />
+                    </div>
+                  </div>
+                  
+                </article>
+              </div>
 
-                {/* Save Template */}
-                <div className="flex justify-end gap-2 me-2">
-                  <a
-                    className=" group flex rounded-lg border border-indigo-600 bg-teal-600  py-1  transition-colors hover:bg-teal-700 focus:outline-none focus:ring"
-                    href="#"
-                    // onClick= {() => (
-                    //   navigate("/")
-                    // )}
-                  >
-                    <span className=" font-medium text-lg flex text-white transition-colors group-hover:text-indigo-600 group-active:text-indigo-500 mx-3">
-                      Prev
-                    </span>
-                  </a>
-                  <a
-                    className=" group flex rounded-lg border border-indigo-600 bg-teal-600  py-1  transition-colors hover:bg-teal-700 focus:outline-none focus:ring"
-                    href="#"
-                    // onClick= {() => (
-                    //   navigate("/")
-                    // )}
-                  >
-                    <span className=" font-medium text-lg flex text-white transition-colors group-hover:text-indigo-600 group-active:text-indigo-500 mx-3">
-                      Next
-                    </span>
-                  </a>
+              {/* show from field iamge */}
+              {showImages.image1 && (
+                <div className="flex items-center w-[60%] mx-3">
+                  <div className="border-3 border-green-300 mx-auto">
+                    <img alt="" src={screenshotImage1} className="" />
+                  </div>
                 </div>
-              </ul>
+              )}
+
+              {showImages.image2 && (
+                <div className="flex items-center w-[60%] mx-3">
+                  <div className="border-3 border-green-300  mx-auto">
+                    <img alt="" src={screenshotImage2} className="" />
+                  </div>
+                </div>
+              )}
+              {showImages.image3 && (
+                <div className="flex items-center w-[60%] mx-3">
+                  <div className="border-3 border-green-300 mx-auto">
+                    <img alt="" src={screenshotImage3} className="" />
+                  </div>
+                </div>
+              )}
+              {showImages.image4 && (
+                <div className="flex items-center w-[60%] mx-3">
+                  <div className="border-3 border-green-300 mx-auto">
+                    <img alt="" src={screenshotImage4} className="" />
+                  </div>
+                </div>
+              )}
+
+              {/* View image */}
+
+              {viewImage && (
+                <div className="w-[65%] pb-2">
+                  <div className="mx-auto max-w-screen-xl px-2 lg:pt-2 sm:px-6 lg:px-8">
+                    <ul className="mt-2 flex justify-center pt-6 py-4">
+                      <li className="w-[65%]">
+                        <div
+                          style={{
+                            position: "relative",
+                            border: "2px solid gray",
+                          }}
+                        >
+                          <img
+                            src={image}
+                            alt="Selected"
+                            style={{
+                              width: "100%",
+                              height: "810px",
+                              cursor: "crosshair",
+                            }}
+                          />
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              )}
+            </div>
+            <div className="flex gap-4 me-4 pb-4">
+              <button className="ms-auto group flex rounded-lg border-none border-indigo-600 bg-gradient-to-r from-purple-600 to-indigo-700  py-2  transition-colors hover:bg-teal-700 focus:outline-none focus:ring">
+                <span className=" font-medium text-lg flex  text-white transition-colors group-hover:text-indigo-600 group-active:text-indigo-500 mx-4 px-1">
+                  Prev
+                </span>
+              </button>
+              <button className=" group flex rounded-lg border-none border-indigo-600 bg-gradient-to-r from-purple-600 to-indigo-700 bg-teal-600  py-2  transition-colors hover:bg-teal-700 focus:outline-none focus:ring">
+                <span className=" font-medium text-lg flex text-white transition-colors group-hover:text-indigo-600 group-active:text-indigo-500 mx-4 px-1">
+                  Next
+                </span>
+              </button>
             </div>
           </div>
-
-          {/* RIGHT SECTION  */}
-
-          {
-            // !image ? (
-            //   <div className="flex justify-center items-center bg-gray-400 w-[70%]">
-            //     <div className="">
-            //       <ImageNotFound />
-
-            //       <h1 className="mt-8 text-2xl font-bold tracking-tight text-gray-700 sm:text-4xl">
-            //         Please Select Image...
-            //       </h1>
-
-            //       <p className="mt-4 text-gray-600 text-center">
-            //         We can't find that page!!
-            //       </p>
-            //     </div>
-            //   </div>
-            // ) : (
-            <div className="w-[65%] bg-slate-500 pb-2">
-              <div className="mx-auto max-w-screen-xl px-2 lg:pt-2 sm:px-6 lg:px-8">
-                <ul className="mt-2 flex justify-center pt-6 py-4">
-                  <li className="w-[65%]">
-                    {
-                      <div
-                        style={{
-                          position: "relative",
-                          border: "2px solid gray",
-                        }}
-                      >
-                        <img
-                          ref={imageRef}
-                          src={imageChange}
-                          alt="Selected"
-                          draggable={false}
-                          style={{
-                            width: "100%",
-                            height: "810px",
-                            cursor: "crosshair",
-                          }}
-                          // onMouseDown={handleMouseDown}
-                          // onMouseUp={handleMouseUp}
-                          // onMouseMove={handleMouseMove}
-                          // draggable={false}
-                          data-bs-toggle="modal"
-                          data-bs-target="#exampleModal"
-                        />
-                        {selection && (
-                          <>
-                            <div
-                              className="border-blue-500"
-                              style={{
-                                border: "2px solid #007bff",
-                                position: "absolute",
-                                left: selection.x,
-                                top: selection.y,
-                                width: selection.width,
-                                height: selection.height,
-                              }}
-                            ></div>
-                            <div
-                              className="modal fade"
-                              id="exampleModal"
-                              tabIndex="-1"
-                              aria-labelledby="exampleModalLabel"
-                              aria-hidden="true"
-                            >
-                              <div className="modal-dialog modal-dialog-centered">
-                                <div className="modal-content px-3 py-2">
-                                  <div className="modal-header">
-                                    <h1
-                                      className="modal-title fs-5 fw-semibold text-gray-600"
-                                      id="exampleModalLabel"
-                                    >
-                                      Add Field Entity..
-                                    </h1>
-                                    <button
-                                      type="button"
-                                      className="btn-close"
-                                      data-bs-dismiss="modal"
-                                      aria-label="Close"
-                                      onClick={() => setSelection("")}
-                                    ></button>
-                                  </div>
-                                  <div className="modal-body flex justify-between my-2">
-                                    <input
-                                      required=""
-                                      className="input w-[72%] font-semibold bg-white text-lg focus:border-1 rounded-xl px-3 py-2  shadow-xl   focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"
-                                      type="text"
-                                      name="field"
-                                      placeholder="Field.."
-                                      value={inputField}
-                                      onChange={(e) =>
-                                        setInputField(e.target.value)
-                                      }
-                                    />
-                                    <button
-                                      type="button"
-                                      data-bs-dismiss="modal"
-                                      className="btn bg-teal-600 hover:bg-teal-500 text-white font-semibold"
-                                      onClick={onSelectedHandler}
-                                    >
-                                      Save Field
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </>
-                        )}
-                      </div>
-                    }
-                  </li>
-                </ul>
-              </div>
-            </div>
-            // )
-          }
-        </div>
+        </>
       )}
     </>
   );

@@ -5,47 +5,43 @@ import {useNavigate} from "react-router-dom"
 
 const Testing = () => {
   const [csvFile, setCsvFile] = useState(null);
-  const [imageFolder, setImageFolder] = useState(null);
+  // const [imageFolder, setImageFolder] = useState(null);
 
-  const onCsvFileHandler = (event) => {
-    if (event.target.files[0]) {
-      const file = event.target.files[0];
-      const allowedExtensions = ["csv", "xlsx"];
-      const extension = file?.name.split(".").pop().toLowerCase();
+  // const onCsvFileHandler = (event) => {
+  //   if (event.target.files[0]) {
+  //     const file = event.target.files[0];
+  //     const allowedExtensions = ["csv", "xlsx"];
+  //     const extension = file?.name.split(".").pop().toLowerCase();
 
-      if (!allowedExtensions.includes(extension)) {
-        alert("Please upload a CSV or Excel file.");
-        return;
-      }
+  //     if (!allowedExtensions.includes(extension)) {
+  //       alert("Please upload a CSV or Excel file.");
+  //       return;
+  //     }
 
-      setCsvFile(file);
-    }
-  };
+  //     setCsvFile(file);
+  //   }
+  // };
 
-  const onImageFolderHandler = (event) => {
-    if (event.target.files[0]) {
-      const file = event.target.files[0];
-      const allowedExtensions = ["zip", "folder"];
-      const extension = file?.name.split(".").pop().toLowerCase();
+  // const onImageFolderHandler = (event) => {
+  //   if (event.target.files[0]) {
+  //     const file = event.target.files[0];
+  //     const allowedExtensions = ["zip", "folder"];
+  //     const extension = file?.name.split(".").pop().toLowerCase();
 
-      if (!allowedExtensions.includes(extension)) {
-        alert("Please upload a ZIP file or a folder.");
-        return;
-      }
+  //     if (!allowedExtensions.includes(extension)) {
+  //       alert("Please upload a ZIP file or a folder.");
+  //       return;
+  //     }
 
-      setImageFolder(file);
-    }
-  };
+  //     setImageFolder(file);
+  //   }
+  // };
   const navigate = useNavigate();
   const onSaveFilesHandler = async () => {
-    // if (!csvFile || !imageFolder) {
-    //   alert("Please upload both CSV and image folder.");
-    //   return;
-    // }
     navigate("/mapping")
     const formData = new FormData();
     formData.append("csvFile", csvFile);
-    formData.append("zipFile", imageFolder);
+    // formData.append("zipFile", imageFolder);
     
     try {
       const response = await axios.post(
@@ -180,7 +176,7 @@ const Testing = () => {
               type="file"
               accept=".csv,.xlsx"
               name="file"
-              onChange={onCsvFileHandler}
+              // onChange={onCsvFileHandler}
               className="absolute -top-full opacity-0"
             />
           </div>
@@ -216,7 +212,7 @@ const Testing = () => {
               directory
               multiple
               name="file"
-              onChange={onImageFolderHandler}
+              // onChange={onImageFolderHandler}
               className="absolute -top-full opacity-0"
             />
           </div>
