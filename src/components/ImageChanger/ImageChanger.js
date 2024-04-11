@@ -5,7 +5,7 @@ import screenshotImage2 from "../../assets/Screenshot 2024-04-10 102137.png";
 import screenshotImage3 from "../../assets/Screenshot 2024-04-10 102146.png";
 import screenshotImage4 from "../../assets/Screenshot 2024-04-10 160230.png";
 import { FaImage } from "react-icons/fa6";
-import '../../App.css'
+import "../../App.css";
 
 const ImageChanger = () => {
   const [popUp, setPopUp] = useState(true);
@@ -62,6 +62,58 @@ const ImageChanger = () => {
 
             <div className="flex border-e  ">
               {/* Form Field Area */}
+              <div className="absolute top-24 right-20">
+                <label
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                  className=" font-medium text-white bg-gradient-to-r from-purple-600 to-indigo-700 rounded-xl shadow-md cursor-pointer select-none text-lg px-6 py-2 hover:shadow-xl active:shadow-md"
+                >
+                  <span>View Image</span>
+                </label>
+              </div>
+              {/* modal for image */}
+              <div
+                class="modal fade"
+                id="exampleModal"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-xl">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">
+                        Modal title
+                      </h1>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body px-5">
+                      <div
+                        style={{
+                          position: "relative",
+                          border: "2px solid gray",
+                        }}
+                        className="mx-5"
+                      >
+                        <img
+                          src={image}
+                          alt="Selected"
+                          style={{
+                            width: "100%",
+                            height: "810px",
+                            cursor: "crosshair",
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
               <div className=" flex flex-col  py-4 w-[40%] overflow-hidden">
                 <article className="overflow-hidden rounded-lg ps-3 py-3 shadow transition hover:shadow-lg bg-slate-300 m-3 ">
@@ -80,10 +132,10 @@ const ImageChanger = () => {
                         placeholder="Candidate Name.."
                       />
                       <div className="mx-3 my-1 rounded-2 bg-slate-400">
-                      <FaImage
-                        className=" text-light text-4xl px-1"
-                        onClick={() => handleInputClick("image1")}
-                      />
+                        <FaImage
+                          className=" text-light text-4xl px-1"
+                          onClick={() => handleInputClick("image1")}
+                        />
                       </div>
                     </div>
                   </div>
@@ -102,11 +154,11 @@ const ImageChanger = () => {
                         className="input font-semibold bg-white border-none border-gray-300  rounded-lg p-2 text-lg shadow-xl w-full focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"
                         placeholder="Class.."
                       />
-                     <div className="mx-3 my-1 rounded-2 bg-slate-400">
-                      <FaImage
-                        className=" text-light text-4xl px-1"
-                        onClick={() => handleInputClick("image2")}
-                      />
+                      <div className="mx-3 my-1 rounded-2 bg-slate-400">
+                        <FaImage
+                          className=" text-light text-4xl px-1"
+                          onClick={() => handleInputClick("image2")}
+                        />
                       </div>
                     </div>
                   </div>
@@ -126,10 +178,10 @@ const ImageChanger = () => {
                         placeholder="School Name.."
                       />
                       <div className="mx-3 my-1 rounded-2 bg-slate-400">
-                      <FaImage
-                        className=" text-light text-4xl px-1"
-                        onClick={() => handleInputClick("image3")}
-                      />
+                        <FaImage
+                          className=" text-light text-4xl px-1"
+                          onClick={() => handleInputClick("image3")}
+                        />
                       </div>
                     </div>
                   </div>
@@ -146,10 +198,10 @@ const ImageChanger = () => {
                         Questions:
                       </label>
                       <div className=" my-1 rounded-2 bg-slate-400">
-                      <FaImage
-                        className=" text-light text-4xl px-1"
-                        onClick={() => handleInputClick("image1")}
-                      />
+                        <FaImage
+                          className=" text-light text-4xl px-1"
+                          onClick={() => handleInputClick("image1")}
+                        />
                       </div>
                     </div>
                     <div className=" px-2 mx-3 py-2 flex">
@@ -194,7 +246,6 @@ const ImageChanger = () => {
                       />
                     </div>
                   </div>
-                  
                 </article>
               </div>
 
@@ -230,33 +281,6 @@ const ImageChanger = () => {
               )}
 
               {/* View image */}
-
-              {viewImage && (
-                <div className="w-[65%] pb-2">
-                  <div className="mx-auto max-w-screen-xl px-2 lg:pt-2 sm:px-6 lg:px-8">
-                    <ul className="mt-2 flex justify-center pt-6 py-4">
-                      <li className="w-[65%]">
-                        <div
-                          style={{
-                            position: "relative",
-                            border: "2px solid gray",
-                          }}
-                        >
-                          <img
-                            src={image}
-                            alt="Selected"
-                            style={{
-                              width: "100%",
-                              height: "810px",
-                              cursor: "crosshair",
-                            }}
-                          />
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              )}
             </div>
             <div className="flex gap-4 me-4 pb-4">
               <button className="ms-auto group flex rounded-lg border-none border-indigo-600 bg-gradient-to-r from-purple-600 to-indigo-700  py-2  transition-colors hover:bg-teal-700 focus:outline-none focus:ring">
