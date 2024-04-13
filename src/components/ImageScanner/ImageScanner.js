@@ -14,7 +14,7 @@ const ImageScanner = () => {
   const imageRef = useRef(null);
 
   const location = useLocation();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const { imageURL } = location.state ? location.state : "";
   useEffect(() => {
@@ -76,81 +76,78 @@ const ImageScanner = () => {
   return (
     <div className="flex h-[100vh]">
       {/* LEFT SECTION  */}
-        <div className="flex flex-1 flex-col justify-between border-e bg-white w-[30%]">
-          <div className="px-4 py-6">
-            <ul className="mt-14 space-y-1 ">
-              <li
-                style={{ marginTop: "40px" }}
-                className="block w-full rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium  mb-5"
-              >
-                <div className="overflow-x-auto">
-                  <table className="mt-3 table border-collapse border border-slate-400 min-w-full divide-y-2 divide-gray-200 bg-white text-sm rounded-lg">
-                    <thead className="ltr:text-left rtl:text-right">
-                      <tr>
+      <div className="flex flex-1 flex-col justify-between border-e bg-white w-[30%]">
+        <div className="px-4 py-6">
+          <ul className="mt-14 space-y-1 ">
+            <li
+              style={{ marginTop: "40px" }}
+              className="block w-full rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium  mb-5"
+            >
+              <div className="overflow-x-auto">
+                <table className="mt-3 table border-collapse border border-slate-400 min-w-full divide-y-2 divide-gray-200 bg-white text-sm rounded-lg">
+                  <thead className="ltr:text-left rtl:text-right">
+                    <tr>
                       <th className="text-center whitespace-nowrap px-4 py-2 font-semibold text-lg text-gray-100">
-                          Field
-                        </th>
-                        <th className="text-center whitespace-nowrap px-4 py-2 font-semibold text-lg text-gray-100">
-                          Delete
-                        </th>
+                        Field
+                      </th>
+                      <th className="text-center whitespace-nowrap px-4 py-2 font-semibold text-lg text-gray-100">
+                        Delete
+                      </th>
+                    </tr>
+                  </thead>
 
-                      </tr>
-                    </thead>
-
-                    <tbody className="divide-y divide-gray-200">
-                      {allSelectedData &&
-                        allSelectedData?.map((data) => (
-                          <tr key={data.id} className="odd:bg-gray-50">
-                            <td className="whitespace-nowrap px-4 py-2 text-center font-semibold text-md text-gray-900">
-                              {data.name}
-                            </td>
-                            <td className="whitespace-nowrap px-4 py-2 text-center font-semibold text-md text-gray-900">
-                            < MdDelete className="mx-auto text-red-500 text-xl" />
-                            </td>
-                          </tr>
-                        ))}
-                    </tbody>
-                  </table>
-                </div>
-              </li>
-              <div>
-                {/* Form Field Area */}
-
-                <div className=" min-w-[350px] bg-gradient-to-b from-white to-gray-100 rounded-3xl px-4 pt-1 pb-4 border-1 border-gray shadow-md mb-10">
-                  <form action="" className="form">
-                    <input
-                      required=""
-                      className="input w-full font-semibold bg-white  border-none rounded-xl p-3 mt-6 shadow-xl   focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"
-                      type="text"
-                      name="templateName"
-                      placeholder="Template Name.."
-                    />
-                    <input
-                      required=""
-                      className="input w-full font-semibold bg-white border-none rounded-xl p-3 mt-6 shadow-xl   focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none focus:outline-none"
-                      type="text"
-                      name="feildData"
-                      placeholder="Field Name.."
-                    />
-                  </form>
-                </div>
-
-                {/* Save Template */}
-                <a
-                  className="mx-20 group flex items-center  rounded-lg border border-indigo-600 bg-teal-600  py-2  transition-colors hover:bg-teal-700 focus:outline-none focus:ring"
-                  href="#"
-                  onClick= {() => (
-                    navigate("/")
-                  )}
-                >
-                  <span className="font-medium text-lg flex text-white transition-colors group-hover:text-indigo-600 group-active:text-indigo-500 mx-auto">
-                    Save Template
-                  </span>
-                </a>
+                  <tbody className="divide-y divide-gray-200">
+                    {allSelectedData &&
+                      allSelectedData?.map((data) => (
+                        <tr key={data.id} className="odd:bg-gray-50">
+                          <td className="whitespace-nowrap px-4 py-2 text-center font-semibold text-md text-gray-900">
+                            {data.name}
+                          </td>
+                          <td className="whitespace-nowrap px-4 py-2 text-center font-semibold text-md text-gray-900">
+                            <MdDelete className="mx-auto text-red-500 text-xl" />
+                          </td>
+                        </tr>
+                      ))}
+                  </tbody>
+                </table>
               </div>
-            </ul>
-          </div>
+            </li>
+            <div>
+              {/* Form Field Area */}
+
+              <div className=" min-w-[350px] bg-gradient-to-b from-white to-gray-100 rounded-3xl px-4 pt-1 pb-4 border-1 border-gray shadow-md mb-10">
+                <form action="" className="form">
+                  <input
+                    required=""
+                    className="input w-full font-semibold bg-white  border-none rounded-xl p-3 mt-6 shadow-xl   focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"
+                    type="text"
+                    name="templateName"
+                    placeholder="Template Name.."
+                  />
+                  <input
+                    required=""
+                    className="input w-full font-semibold bg-white border-none rounded-xl p-3 mt-6 shadow-xl   focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none focus:outline-none"
+                    type="text"
+                    name="feildData"
+                    placeholder="Field Name.."
+                  />
+                </form>
+              </div>
+
+              {/* Save Template */}
+              <a
+                className="mx-20 group flex items-center  rounded-lg border border-indigo-600 bg-teal-600  py-2  transition-colors hover:bg-teal-700 focus:outline-none focus:ring"
+                href="#"
+                onClick={() => navigate("/")}
+              >
+                <span className="font-medium text-lg flex text-white transition-colors group-hover:text-indigo-600 group-active:text-indigo-500 mx-auto">
+                  Save Template
+                </span>
+              </a>
+            </div>
+          </ul>
         </div>
+      </div>
 
       {/* RIGHT SECTION  */}
 
@@ -233,13 +230,26 @@ const ImageScanner = () => {
                                   onClick={() => setSelection("")}
                                 ></button>
                               </div>
-                              <div className="modal-body flex justify-between my-2">
-                                <input
+                              <div className="modal-body justify-between">
+                                <div className="mb-3 w-[70%] rounded-2">
+                                  <select
+                                    name="HeadlineAct"
+                                    id="HeadlineAct"
+                                    className="mt-1.5 w-full rounded-lg border-2 text-gray-400 text-lg font-semibold px-2 py-1 "
+                                  >
+                                    <option className="text-md font-semibold" value="">Please select Field..</option>
+                                    <option className="text-md font-semibold" value="FF">Form Field</option>
+                                    <option className="text-md font-semibold" value="QF">Question Field</option>
+                                    
+                                  </select>
+                                </div>
+                               <div className="flex justify-between">
+                               <input
                                   required=""
-                                  className="input w-[72%] font-semibold bg-white text-lg focus:border-1 rounded-xl px-3 py-2  shadow-xl   focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"
+                                  className="input w-[72%] font-semibold bg-white border-1 text-lg focus:border-1 rounded-xl px-3 py-2  shadow-xl   focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"
                                   type="text"
                                   name="field"
-                                 placeholder="Field.."
+                                  placeholder="Field.."
                                   value={inputField}
                                   onChange={(e) =>
                                     setInputField(e.target.value)
@@ -253,6 +263,7 @@ const ImageScanner = () => {
                                 >
                                   Save Field
                                 </button>
+                               </div>
                               </div>
                             </div>
                           </div>
